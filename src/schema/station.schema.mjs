@@ -1,0 +1,39 @@
+import mongoose from "mongoose";
+
+const stationSchema = new mongoose.Schema({
+    nameStation: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    locationStation: {
+        latitude: {
+            type: Number,
+            required: true
+        },
+        length: {
+            type: Number,
+            required: true
+        }
+    },
+    capacitanceStation: {
+        type: Number,
+        required: true,
+        min: 1
+    },
+    bikesAvailableStation: {
+        type: Number,
+        default: 0,
+        min: 0
+    }
+},{
+        timestamps: true,
+        versionKey: false
+});
+
+const stationModel = mongoose.model(
+    'station',
+    stationSchema
+);
+
+export default stationModel;
