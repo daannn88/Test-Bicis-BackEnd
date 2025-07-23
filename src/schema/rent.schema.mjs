@@ -5,14 +5,19 @@ const rentSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    userId:{
+        type: Number,
+        trim: true,
+        require: true
+    },
     bikeChossed: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Bicicleta',
+        ref: 'bikes',
         required: true
     },
     departureStation: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Estacion',
+        ref: 'station',
         required: true
     },
     startDate: {
