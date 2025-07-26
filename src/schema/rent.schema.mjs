@@ -5,11 +5,6 @@ const rentSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    userId:{
-        type: Number,
-        trim: true,
-        require: true
-    },
     bikeChossed: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'bikes',
@@ -27,9 +22,10 @@ const rentSchema = new mongoose.Schema({
     endDate: {
         type: Date
     },
-    bikeInUse: {
-        type: Boolean,
-        default: true
+    bikeActive: {
+        type: String,
+        enum: [ 'en-curso', 'finalizado'],
+        default: 'en-curso'
     }
 },{
     timestamps: true,

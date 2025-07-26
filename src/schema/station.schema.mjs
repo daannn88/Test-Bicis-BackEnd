@@ -19,12 +19,11 @@ const stationSchema = new mongoose.Schema({
     capacitanceStation: {
         type: Number,
         required: true,
+        max: 10,
         min: 1
     },
     bikesAvailableStation: {
-        type: Number,
-        default: 0,
-        min: 0
+        type: mongoose.Schema.Types.ObjectId,   
     }
 },{
         timestamps: true,

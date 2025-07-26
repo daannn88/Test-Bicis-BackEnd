@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+export const estadosDisponibles = ['disponible', 'en-uso', 'en-mantenimiento']
+
 const bikesSchema = new mongoose.Schema({
     serialBike: {
         type: String,
@@ -8,13 +10,8 @@ const bikesSchema = new mongoose.Schema({
     },
     stateBike: {
         type: String,
-        enum: ['disponible', 'en uso', 'en mantenimiento'],
+        enum: estadosDisponibles,
         default: 'disponible'
-    },
-    stationBike: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'station',
-        required: true
     }
 },{
     timestamps: true,
